@@ -37,7 +37,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npm view dom-inspector@${{ steps.version.outputs.version }} version 2>/dev/null && echo "exists=true" >> $GITHUB_OUTPUT || echo "exists=false" >> $GITHUB_OUTPUT
+          npm view @ssw1992/dom-inspector@${{ steps.version.outputs.version }} version 2>/dev/null && echo "exists=true" >> $GITHUB_OUTPUT || echo "exists=false" >> $GITHUB_OUTPUT
 
       - name: Publish to npm
         if: steps.check.outputs.exists == 'false'
