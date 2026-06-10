@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://img.shields.io/npm/v/dom-inspector?color=42b883" alt="npm version" />
-  <img src="https://img.shields.io/npm/types/dom-inspector?color=3178c6" alt="TypeScript" />
-  <img src="https://img.shields.io/bundlephub/minzip/dom-inspector?color=ff6600" alt="min+gzip size" />
-  <img src="https://img.shields.io/npm/lm/dom-inspector?color=green" alt="license" />
+  <img src="https://img.shields.io/npm/v/inspect-dom?color=42b883" alt="npm version" />
+  <img src="https://img.shields.io/npm/types/inspect-dom?color=3178c6" alt="TypeScript" />
+  <img src="https://img.shields.io/bundlephub/minzip/inspect-dom?color=ff6600" alt="min+gzip size" />
+  <img src="https://img.shields.io/npm/lm/inspect-dom?color=green" alt="license" />
 </p>
 
-<h1 align="center">dom-inspector</h1>
+<h1 align="center">inspect-dom</h1>
 
 <p align="center">
   零依赖、零配置的通用 DOM 元素检查器 — hover 高亮，点击选中，获取完整 DOM 信息
@@ -19,7 +19,7 @@
 
 ## 它是什么？
 
-`dom-inspector` 是一个可以在**任意网页**中使用的交互式 DOM 元素选取工具。
+`inspect-dom` 是一个可以在**任意网页**中使用的交互式 DOM 元素选取工具。
 
 用户点击「启动」后：
 1. **鼠标悬停** → 页面元素被绿色高亮框覆盖 + 显示标签名和尺寸
@@ -47,13 +47,13 @@
 
 ```bash
 # npm
-npm install dom-inspector
+npm install inspect-dom
 
 # pnpm
-pnpm add dom-inspector
+pnpm add inspect-dom
 
 # yarn
-yarn add dom-inspector
+yarn add inspect-dom
 ```
 
 > 无需安装 peer dependencies。本包零运行时依赖。
@@ -63,7 +63,7 @@ yarn add dom-inspector
 ### 方式一：回调模式（推荐用于长期交互）
 
 ```typescript
-import { createInspector } from 'dom-inspector'
+import { createInspector } from 'inspect-dom'
 
 const inspector = createInspector({
   // 自定义高亮颜色
@@ -107,7 +107,7 @@ inspector.destroy()
 ### 方式二：Promise 模式（适合一次性选取）
 
 ```typescript
-import { inspectOnce } from 'dom-inspector'
+import { inspectOnce } from 'inspect-dom'
 
 try {
   const result = await inspectOnce({ color: '#42b883' })
@@ -124,7 +124,7 @@ try {
 
 ```html
 <script type="module">
-  import { createInspector } from './node_modules/dom-inspector/dist/index.js'
+  import { createInspector } from './node_modules/inspect-dom/dist/index.js'
 
   document.querySelector('#pick-btn').addEventListener('click', () => {
     createInspector({
@@ -196,7 +196,7 @@ import {
   getUniqueSelector,
   getComputedStyles,
   detectFramework,
-} from 'dom-inspector'
+} from 'inspect-dom'
 
 // 单独获取某个元素的 CSS 路径
 const path = getCssPath(document.querySelector('#app')!)
@@ -245,7 +245,7 @@ async function pickComponentFromPage() {
 
 ```typescript
 // 测试脚本中快速获取元素的选择器
-import { getUniqueSelector } from 'dom-inspector'
+import { getUniqueSelector } from 'inspect-dom'
 const selector = getUniqueSelector(document.querySelector('.submit-btn')!)
 console.log(`测试用选择器: ${selector}`)
 ```
@@ -263,7 +263,7 @@ ins.start()
 
 | 包名 | 月下载量 | 定位 | 需要 Vite/Webpack? | 支持 Vue? | 支持 React? | 有高亮交互? | 输出内容 |
 |------|---------|------|-------------------|----------|-------------|------------|---------|
-| **dom-inspector** (本包) | 新发布 | **通用 DOM 选取器** | ❌ 否 | ✅ 是 | ✅ 是 | ✅ hover+click | 完整 DOM 信息 + 框架组件 |
+| **inspect-dom** (本包) | 新发布 | **通用 DOM 选取器** | ❌ 否 | ✅ 是 | ✅ 是 | ✅ hover+click | 完整 DOM 信息 + 框架组件 |
 | [@medv/finder](https://www.npmjs.com/package/@medv/finder) | 365 万 | CSS 选择器生成器 | ❌ 否 | ❌ | ❌ | ❌ | 仅 CSS 选择器字符串 |
 | [css-selector-generator](https://www.npmjs.com/package/css-selector-generator) | 12.7 万 | CSS 选择器生成器 | ❌ 否 | ❌ | ❌ | ❌ | 仅 CSS 选择器字符串 |
 | [vite-plugin-vue-inspector](https://www.npmjs.com/package/vite-plugin-vue-inspector) | 523 万 | Vue IDE 跳转 | ✅ 必须 | ✅ 仅 Vue | ❌ | ✅ | IDE 文件路径 |
@@ -277,7 +277,7 @@ ins.start()
                        │
    react-inspector ────┼──── ● 最丰富（但仅 React，嵌入式面板）
                        │
-   dom-inspector ──────┼──── ★ 我们的位置
+   inspect-dom ──────┼──── ★ 我们的位置
                        │        通用 + 交互 + 框架识别 + 零配置
    code-inspector ────┼
                        │
